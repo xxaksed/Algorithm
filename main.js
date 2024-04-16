@@ -1,24 +1,16 @@
-let array = [3, 5, -4, 8, 11, 1, -1, 6]
+let array = [3, 5, -4, 8, 11, 1, -1, 6];
 
+function NumSum(array) {
+	let result = [];
+	let set1 = new Set();
+	for (let i = 0; i < array.length; i++) {
+		if (set1.has(array[i])) {
+			result.push(10 - array[i], array[i]);
+			console.log(set1);
+			console.log(result);
+		}
+		set1.add(10 - array[i]);
+	}
+}
 
-
-function NumSum (array){
-    let sum = 0
-    let currInx = 0
-    for(let i = currInx + 1; i < array.length; i++){
-      sum = array[currInx] + array[i]
-      if(sum == 10){
-        console.log("да ну нахуй", array[currInx], "+", array[i],"=", sum)
-        return 
-      }
-      else(
-        sum = 0
-      )
-      if(i >= array.length - 1){
-        array = array.slice(currInx + 1, array.length)
-      }
-    }
-    NumSum(array)
-  }
-
-NumSum(array)
+NumSum(array);
