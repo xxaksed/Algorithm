@@ -5,7 +5,8 @@ function FindSum(array) {
 	for (let i = 0; i < array.length; i++) {
 		let y = i + 1;
 		let z = y + 1;
-		while (array[i] + array[y] + array[z] != 0) {
+		let sum = array[i] + array[y] + array[z];
+		while (sum != 0) {
 			if (z != array.length - 1) {
 				z++;
 			} else if (y != array.length - 2) {
@@ -15,11 +16,15 @@ function FindSum(array) {
 					y = i + 1;
 					z = y + 1;
 				}
+				console.log(i, y, z);
 			}
-			if (z == array.length - 1 && y == z - 1 && i == y - 1) {
+			if (sum == 0) {
+				result.push(array[i], array[y], array[z]);
+				return result;
+			}
+			if (i == 5) {
 				return false;
 			}
-			console.log(i + "i", y + "y", z + "z");
 		}
 	}
 }
