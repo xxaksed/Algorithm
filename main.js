@@ -1,16 +1,30 @@
-let array = [3, 5, -4, 8, 11, 1, -1, 6];
+let array = [12, 3, 1, 2, -6, 5, -8, 6];
 
-function NumSum(array) {
+function FindSum(array) {
 	let result = [];
-	let set1 = new Set();
 	for (let i = 0; i < array.length; i++) {
-		if (set1.has(array[i])) {
-			result.push(10 - array[i], array[i]);
-			console.log(set1);
-			console.log(result);
+		let y = i + 1;
+		let z = y + 1;
+		while (array[i] + array[y] + array[z] != 0) {
+			if (z != array.length - 1) {
+				z++;
+			} else if (y != array.length - 2) {
+				y++;
+				if (z == array.length - 1 && y == z - 1) {
+					i++;
+					y = i + 1;
+					z = y + 1;
+				}
+			}
+			if (z == array.length - 1 && y == z - 1 && i == y - 1) {
+				return false;
+			}
+			console.log(i + "i", y + "y", z + "z");
 		}
-		set1.add(10 - array[i]);
 	}
 }
 
-NumSum(array);
+console.log(FindSum(array));
+// 3, 6, 7;
+// 1, 5, 6;
+// 2, 4, 5;
